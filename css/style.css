@@ -1,327 +1,479 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-    color: #fff;
-    font-weight: 100;
-}
-header {
-    display:flex;
-    justify-content: flex-end;
-    margin: 0;
-}
-main {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.block {
-    height:auto;
-    margin-right: 1em;
-}
-.block-heading {
-    text-align: center;
-    margin-bottom: 1em;
-}
-.bg-video-container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -3;
-}
-.bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.opac {
-  background:rgba(0,0,0,0.3);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -2;
-}
-.clock_face {
-    width: 80vmin;
-    height: 80vmin;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.clock_face::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: calc(50% - 10px);
-    top: calc(50% - 10px);
-    border-radius: 50%;
-    background-color: #fff;
-}
-.clock_face::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 98%;
-    height: 98%;
-    left: 1%;
-    top: 1%;
-    border-radius: 50%;
-    border: 1px solid #fff;
-}
-.clock_heading {
-    font-weight: 100;
-    font-size: 20px;
-    text-transform: uppercase;
-    margin-bottom: 20vmin;
-}
-.clock_hand {
-    background: #fff;
-    position: absolute;
-    bottom: calc(50% - 40px);
-}
-.clock_hours {
-    width: 4px;
-    height: 30%;
-    left: calc(50% - 2px);
-    transform-origin: 2px calc(100% - 40px);
-    position: absolute;
-    z-index: 1;
-}
-.clock_minutes {
-    width: 3px;
-    height: 40%;
-    left: calc(50% - 2px);
-    transform-origin: 2px calc(100% - 40px);
-    position: absolute;
-    z-index: 2;
-}
-.clock_seconds {
-    width: 2px;
-    height: 50%;
-    left: calc(50% - 1px);
-    transform: rotate(45deg);
-    transform-origin: 1px calc(100% - 40px);
-    position: absolute;
-    z-index: 3;
-}
-.countdown {
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-}
-.countdown_heading {
-    font-weight: 100;
-    font-size: 18px;
-}
-.countdown_body {
-    display: flex;
-    font-size: 26px;
-    justify-content: center;
-}
-
-.schedule {
-  width:15vw;
-  height: 4vh;
-  align-self: center;
-  margin-top: 20px;
-  background-color: transparent;
-}
-
-.date {
-  display:none;
-  position: relative;
-}
-
-.match {
-  display:none;
-  position: relative;
-}
-
-.setter_button {
-  font-size: 2.5vmin;
-  line-height: 1.2vw;
-  width: 100%;
-  height:100%;
-  z-index: 2000;
-  position: relative;
-  cursor: pointer;
-  outline:none;
-  background-color: transparent;
-  color: white;
-}
-
-.setter_button:active {
-  box-shadow: 5px 5px 5px #888888 inset;
-}
-
-.total-shadow{
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0,0,0,0.6);
-	/*display: flex;*/
-	display: none;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-  position: absolute;
-}
-
-.total-block{
-	background: #fff;
-	padding: 10px 100px 40px;
-	border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    color:black;
-}
-
-#date {
-  width:50vw;
-  height:100%;
-}
-
-@media screen and (max-width: 1033px) {
-  .setter_button {
-    font-size: 1.5vmin;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .schedule {
-    width:15vw;
-    height: 4vh;
-  }
-  .setter_button {
-    line-height: 2vw;
-  }
-}
-
-@media screen and (max-width: 576px) {
-    .countdown_heading {
-        margin-top:50px;
-        font-size: 1rem;
-    }
-    .clock_hand {
-        background: #fff;
-        position: absolute;
-        bottom: calc(50% - 30px);
-    }
-    .clock_hours {
-    transform-origin: 2px calc(100% - 30px);
-
-    }   
-    .clock_minutes {
-        transform-origin: 2px calc(100% - 30px);
-    }
-    .clock_seconds {
-        transform-origin: 1px calc(100% - 30px);
-
-    }
-}
-
-@media screen and (max-width: 408px) {
-    #date_ok {
-        margin-top:10px;
-    }
-
-    .countdown_body {
-        font-size: 1rem;
-    }
-
-     .clock_hand {
-        background: #fff;
-        position: absolute;
-        bottom: calc(50% - 20px);
-    }
-    .clock_hours {
-    transform-origin: 2px calc(100% - 20px);
-
-    }   
-    .clock_minutes {
-        transform-origin: 2px calc(100% - 20px);
-    }
-    .clock_seconds {
-        transform-origin: 1px calc(100% - 20px);
-
-    }
-
-
-    .total-block{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 10px;
-        background: #fff;
-        padding: 10px 100px 40px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 0 20px rgba(0,0,0,0.8);
-        color:black;
-        height: 10%;
-        width:30%;
-    }
-
-}
-
-@media screen and (max-width: 360px){
-    .schedule {
-        width:50%;
-        height:18%;
-        margin:0px 0px 10px 0px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-  .countdown_body {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 305px){
-    .total-block { 
-        height: 10%;
-        width:20%;
-    }
-}
-
-@media screen and (max-width: 280px) {
-    .schedule {
-        margin-top: 5px;
-    }
-    .countdown_body {
-        font-size: 1rem;
-    }
-    .clock_heading {
-        font-size: 0.8rem;
-    }
-    .countdown_heading {
-        font-size: 15px;
-    }
-    .schedule {
-            width:40%;
-            height:15%;
-            margin:0px 0px 10px 0px;
-        }
-    .clock_heading {
-        padding-top: 20px;
-        box-sizing: border-box;
-        margin-bottom:30px;
-    }
-        .countdown_heading {
-        font-size: 15px;
-    }
+body {
+	width: 100vw;
+
+	margin: 0;
+
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+
+	color: #fff;
+
+	font-weight: 100;
+}
+
+header {
+	display: flex;
+
+	justify-content: flex-end;
+
+	margin: 0;
+}
+
+main {
+	width: 100vw;
+
+	margin: 0;
+
+	display: flex;
+
+	justify-content: center;
+
+	align-items: center;
+}
+
+.block {
+	height: auto;
+
+	margin-right: 1em;
+}
+
+.block-heading {
+	text-align: center;
+
+	margin-bottom: 1em;
+}
+
+.bg-video-container {
+	width: 100vw;
+
+	height: 100vh;
+
+	overflow: hidden;
+
+	position: absolute;
+
+	left: 0;
+
+	top: 0;
+
+	z-index: -3;
+}
+
+.bg-video {
+	width: 100%;
+
+	height: 100%;
+
+	object-fit: cover;
+
+	object-position: center;
+}
+
+.opac {
+	background: rgba(0, 0, 0, 0.3);
+
+	width: 100%;
+
+	height: 100%;
+
+	position: absolute;
+
+	z-index: -2;
+}
+
+.clock_face {
+	width: 80vmin;
+
+	height: 80vmin;
+
+	border: 2px solid #fff;
+
+	border-radius: 50%;
+
+	position: relative;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	flex-direction: column;
+}
+
+.clock_face::before {
+	content: '';
+
+	display: block;
+
+	position: absolute;
+
+	width: 20px;
+
+	height: 20px;
+
+	left: calc(50% - 10px);
+
+	top: calc(50% - 10px);
+
+	border-radius: 50%;
+
+	background-color: #fff;
+}
+
+.clock_face::after {
+	content: '';
+
+	display: block;
+
+	position: absolute;
+
+	width: 98%;
+
+	height: 98%;
+
+	left: 1%;
+
+	top: 1%;
+
+	border-radius: 50%;
+
+	border: 1px solid #fff;
+}
+
+.clock_heading {
+	font-weight: 100;
+
+	font-size: 20px;
+
+	text-transform: uppercase;
+
+	margin-bottom: 20vmin;
+}
+
+.clock_hand {
+	background: #fff;
+
+	position: absolute;
+
+	bottom: calc(50% - 40px);
+}
+
+.clock_hours {
+	width: 4px;
+
+	height: 30%;
+
+	left: calc(50% - 2px);
+
+	transform-origin: 2px calc(100% - 40px);
+
+	position: absolute;
+
+	z-index: 1;
+}
+
+.clock_minutes {
+	width: 3px;
+
+	height: 40%;
+
+	left: calc(50% - 2px);
+
+	transform-origin: 2px calc(100% - 40px);
+
+	position: absolute;
+
+	z-index: 2;
+}
+
+.clock_seconds {
+	width: 2px;
+
+	height: 50%;
+
+	left: calc(50% - 1px);
+
+	transform: rotate(45deg);
+
+	transform-origin: 1px calc(100% - 40px);
+
+	position: absolute;
+
+	z-index: 3;
+}
+
+.countdown {
+	text-align: center;
+
+	display: flex;
+
+	flex-direction: column;
+}
+
+.countdown_heading {
+	font-weight: 100;
+
+	font-size: 18px;
+}
+
+.countdown_body {
+	display: flex;
+
+	font-size: 26px;
+
+	justify-content: center;
+}
+
+.schedule {
+	width: 15vw;
+
+	height: 4vh;
+
+	align-self: center;
+
+	margin-top: 20px;
+
+	background-color: transparent;
+}
+
+.date {
+	display: none;
+
+	position: relative;
+}
+
+.match {
+	display: none;
+
+	position: relative;
+}
+
+.setter_button {
+	font-size: 2.5vmin;
+
+	line-height: 1.2vw;
+
+	width: 100%;
+
+	height: 100%;
+
+	z-index: 2000;
+
+	position: relative;
+
+	cursor: pointer;
+
+	outline: none;
+
+	background-color: transparent;
+
+	color: white;
+}
+
+.setter_button:active {
+	box-shadow: 5px 5px 5px #888888 inset;
+}
+
+.total-shadow {
+	width: 100vw;
+
+	height: 100vh;
+
+	background: rgba(0, 0, 0, 0.6);
+
+	/*display: flex;*/
+
+	display: none;
+
+	justify-content: center;
+
+	align-items: center;
+
+	z-index: 1000;
+
+	position: absolute;
+}
+
+.total-block {
+	background: #fff;
+
+	padding: 10px 100px 40px;
+
+	border-radius: 10px;
+
+	text-align: center;
+
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+	color: black;
+}
+
+#date {
+	width: 50vw;
+
+	height: 100%;
+}
+
+@media screen and (max-width: 1033px) {
+	.setter_button {
+		font-size: 1.5vmin;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.schedule {
+		width: 15vw;
+
+		height: 4vh;
+	}
+
+	.setter_button {
+		line-height: 2vw;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.countdown_heading {
+		margin-top: 50px;
+
+		font-size: 1rem;
+	}
+
+	.clock_hand {
+		background: #fff;
+
+		position: absolute;
+
+		bottom: calc(50% - 30px);
+	}
+
+	.clock_hours {
+		transform-origin: 2px calc(100% - 30px);
+	}
+
+	.clock_minutes {
+		transform-origin: 2px calc(100% - 30px);
+	}
+
+	.clock_seconds {
+		transform-origin: 1px calc(100% - 30px);
+	}
+}
+
+@media screen and (max-width: 408px) {
+	#date_ok {
+		margin-top: 10px;
+	}
+
+	.countdown_body {
+		font-size: 1rem;
+	}
+
+	.clock_hand {
+		background: #fff;
+
+		position: absolute;
+
+		bottom: calc(50% - 20px);
+	}
+
+	.clock_hours {
+		transform-origin: 2px calc(100% - 20px);
+	}
+
+	.clock_minutes {
+		transform-origin: 2px calc(100% - 20px);
+	}
+
+	.clock_seconds {
+		transform-origin: 1px calc(100% - 20px);
+	}
+
+	.total-block {
+		display: flex;
+
+		justify-content: center;
+
+		align-items: center;
+
+		font-size: 10px;
+
+		background: #fff;
+
+		padding: 10px 100px 40px;
+
+		border-radius: 10px;
+
+		text-align: center;
+
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+		color: black;
+
+		height: 10%;
+
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.schedule {
+		width: 50%;
+
+		height: 18%;
+
+		margin: 0px 0px 10px 0px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.countdown_body {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 305px) {
+	.total-block {
+		height: 10%;
+
+		width: 20%;
+	}
+}
+
+@media screen and (max-width: 280px) {
+	.schedule {
+		margin-top: 5px;
+	}
+
+	.countdown_body {
+		font-size: 1rem;
+	}
+
+	.clock_heading {
+		font-size: 0.8rem;
+	}
+
+	.countdown_heading {
+		font-size: 15px;
+	}
+
+	.schedule {
+		width: 40%;
+
+		height: 15%;
+
+		margin: 0px 0px 10px 0px;
+	}
+
+	.clock_heading {
+		padding-top: 20px;
+
+		box-sizing: border-box;
+
+		margin-bottom: 30px;
+	}
+
+	.countdown_heading {
+		font-size: 15px;
+	}
 }
