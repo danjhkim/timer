@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clock and Countdown</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+
+<body>
+
+    <div class="opac"></div>
+
+    <div class="bg-video-container">
+
+        <video autoplay muted loop id="viding">
+
+            <source src="video/bg4.mp4" id="sourcing">
+
+        </video>
+
+    </div>
+
+    <header>
+
+        <div class="block">
+
+            <h5 class="block-heading">Time Zones</h5>
+
+            <div class="wrapper center">
+
+                <select id="time-select">
+
+                    <option value="1">Eastern Standard Time (EST)</option>
+                 
+                    <option value="2" selected>British Summer Time (BST)</option>
+
+                    <option value="3">Korean Standard Time (KST)</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="clock">
+
+            <div class="clock_face">
+
+                <h1 class="clock_heading">Clock</h1>
+
+                <div class="clock_hands">
+
+                    <div class="clock_hand clock_hours"></div>
+
+                    <div class="clock_hand clock_minutes"></div>
+
+                    <div class="clock_hand clock_seconds"></div>
+
+                </div>
+
+                <div class="countdown">
+
+                    <h2 class="countdown_heading">Time Left</h2>
+
+                    <div class="countdown_body">
+
+                        <div class="countdown_days">10</div>:
+
+                        <div class="countdown_hours">20</div>:
+
+                        <div class="countdown_minutes">25</div>:
+
+                        <div class="countdown_seconds">50</div>
+
+                    </div>
+
+                    <div class="schedule"><button class="setter_button">Set countdown date</button></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="total-shadow">
+
+            <div class="total-block">
+
+                <div class="total-wrapper date">
+
+                    <h4>Set the date</h4>
+
+                    <input type="date" id="dating">
+
+                    <button id="date_ok">Submit</button>
+
+                </div>
+
+                <div class="total-wrapper match">
+
+                    <h4>ALARM!</h4>
+
+                    <button id="reset">Reset</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </main>
+
+    <script src="js/script1.js"></script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,24 @@
+.clock_hand {
+    background: #fff;
+    position: absolute;
+    bottom: calc(50% - 40px);
+}
+.clock_hours {
+    width: 4px;
+    height: 30%;
+    left: calc(50% - 2px);
+    transform-origin: 2px calc(100% - 40px);
+}
+.clock_minutes {
+    width: 4px;
+    height: 40%;
+    left: calc(50% - 2px);
+    transform-origin: 2px calc(100% - 40px);
+}
+.clock_seconds {
+    width: 2px;
+    height: 50%;
+    left: calc(50% - 1px);
+    transform: rotate(45deg);
+    transform-origin: 1px calc(100% - 40px);
+}
