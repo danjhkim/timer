@@ -3,6 +3,8 @@
 var totalShadow = document.querySelector('.total-shadow');
 var now = new Date();
 var switched = false;
+var startClock;
+var startCountdown;
 
 var getTodos = function getTodos(resource) {
 	return new Promise(function (resolve, reject) {
@@ -21,25 +23,12 @@ var getTodos = function getTodos(resource) {
 };
 
 var boopie = function boopie(data) {
-	var temptime = data;
-	now = new Date(temptime.datetime);
-	var startClock = setInterval(function () {
-		if (switched) {
-			clearInterval(startClock);
-			switched = false;
-			updateTime();
-		} else {
-			updateTime();
-		}
+	now = new Date(data.datetime);
+	startClock = setInterval(function () {
+		updateTime();
 	}, 1000);
-	var startCountdown = setInterval(function () {
-		if (switched) {
-			clearInterval(startCountdown);
-			switched = false;
-			updateCountdown();
-		} else {
-			updateCountdown();
-		}
+	startCountdown = setInterval(function () {
+		updateCountdown();
 	}, 1000);
 };
 
@@ -55,6 +44,8 @@ getTodos(
 var selected = document.getElementById('time-select');
 selected.addEventListener('change', function () {
 	if (selected.value === '1') {
+		clearInterval(startClock);
+		clearInterval(startCountdown);
 		switched = true;
 		var address =
 			'https://timezone.abstractapi.com/v1/current_time/?api_key=02cb7d9db65e4c3c95f94e654a21f854&location=Toronto, Canada';
@@ -66,6 +57,8 @@ selected.addEventListener('change', function () {
 				console.log('promise rejected:', err);
 			});
 	} else if (selected.value === '2') {
+		clearInterval(startClock);
+		clearInterval(startCountdown);
 		switched = true;
 		var address =
 			'https://timezone.abstractapi.com/v1/current_time/?api_key=02cb7d9db65e4c3c95f94e654a21f854&location=Oxford, United Kingdom';
@@ -76,7 +69,9 @@ selected.addEventListener('change', function () {
 			['catch'](function (err) {
 				console.log('promise rejected:', err);
 			});
-	} else {
+	} else if (selected.value === '3') {
+		clearInterval(startClock);
+		clearInterval(startCountdown);
 		switched = true;
 		var address =
 			'https://timezone.abstractapi.com/v1/current_time/?api_key=02cb7d9db65e4c3c95f94e654a21f854&location=Seoul, South Korea';
